@@ -105,7 +105,7 @@ public class FormingAMagicSquare {
                     //not diagnoal
                     sumRow = checkRow_S(r, matrix);
                     sumCol = checkCol_S(c, matrix);
-                    if (sumRow == sumCol || Math.abs(sumRow-max) == Math.abs(sumCol-max)) {
+                    if (sumRow == sumCol) {
                         if (sumRow > 15) {
                             matrix[r][c] -= Math.abs(sumRow-max);
                             accum+=Math.abs(sumRow-max);
@@ -113,6 +113,9 @@ public class FormingAMagicSquare {
                             matrix[r][c] += Math.abs(max-sumRow);
                             accum+=Math.abs(max-sumRow);
                         }
+                    }else if(sumRow > 15 || sumCol < 15){
+                        matrix[r][c] -= Math.abs(sumRow-max);
+                        accum+=Math.abs(sumRow-max);
                     }
                 }else{
                     //diagonal
@@ -122,7 +125,7 @@ public class FormingAMagicSquare {
                             sumDiag = checkDiag_SF(matrix);
                             sumDiag2 = checkDiag_SS(matrix);
                             if (sumDiag == sumDiag2) {
-                                if (sumDiag > 15 || Math.abs(sumDiag-max) == Math.abs(sumDiag-max)) {
+                                if (sumDiag > 15) {
                                     matrix[r][c] -= Math.abs(sumDiag-max);
                                     accum+=Math.abs(sumDiag-max);
                                 }else{
@@ -136,7 +139,7 @@ public class FormingAMagicSquare {
                             sumCol = checkCol_S(c, matrix);
                             sumDiag = checkDiag_SF(matrix);
                             if (sumRow == sumCol && sumRow == sumDiag) {
-                                if (sumRow > 15 || Math.abs(sumRow-max) == Math.abs(sumCol-max)) {
+                                if (sumRow > 15) {
                                     matrix[r][c] -= Math.abs(sumRow-max);
                                     accum+=Math.abs(sumRow-max);
                                 }else{
@@ -151,7 +154,7 @@ public class FormingAMagicSquare {
                         sumCol = checkCol_S(c, matrix);
                         sumDiag = checkDiag_SS(matrix);
                         if (sumRow == sumCol && sumRow == sumDiag) {
-                            if (sumRow > 15 || Math.abs(sumRow-max) == Math.abs(sumCol-max)) {
+                            if (sumRow > 15) {
                                 matrix[r][c] -= (sumRow-max);
                                 accum+=(Math.abs(sumRow-max));
                             }else{
@@ -159,6 +162,27 @@ public class FormingAMagicSquare {
                                 accum+=Math.abs(max-sumRow);
                             }
                         }
+                    }
+                }
+            }
+        }
+        //----------------------------------------------------------------------
+        boolean salirse = false;
+        while(salirse == false){
+            for (int r = 0; r < 3; r++) {
+                for (int c = 0; c < 3; c++) {
+                    if (r != c && Math.abs(c-r) != 2) {
+                        if (r == c ) {
+                            if (r == 1) {
+                                
+                            }else{
+                                
+                            }
+                        }else{
+                            
+                        }
+                    }else{
+                        
                     }
                 }
             }
